@@ -9,6 +9,7 @@ export function App () {
            <TwitterFollowCard isFollowing={false}  userName="pheralb" name="Pablo Hernandez"/>
            <TwitterFollowCard isFollowing  userName="elonmusk" name="Elon Musk"/>
            <TwitterFollowCard isFollowing  userName="vxnder" name="Vanderhart"/>
+          
            </section>
     )
 }
