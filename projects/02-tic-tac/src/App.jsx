@@ -25,10 +25,11 @@ const Square = ({children, isSelected, updateBoard, index}) => {
    function App() {
     const [board, setBoard] = useState(Array(9).fill(null))
 
-    const [turn,SetTurn] = useState(TURNS.X)
+    const [turn,setTurn] = useState(TURNS.X)
 
     const updateBoard = () =>{
       const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
+      setTurn(newTurn)
     }
 
     return(
