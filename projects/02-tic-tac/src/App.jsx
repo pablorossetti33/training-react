@@ -70,9 +70,11 @@ const Square = ({children, isSelected, updateBoard, index}) => {
       //Revisar si hay ganador
       const newWinner = checkWinner(newBoard)
       if (newWinner) {
-        alert(`El ganador es ${newWinner}`)
         setWinner(newWinner)
-      }
+      } //Check if game is over.
+
+
+
     }
 
     return(
@@ -101,6 +103,32 @@ const Square = ({children, isSelected, updateBoard, index}) => {
         {TURNS.O}
         </Square>
      </section>
+    
+     {
+      winner ===! null && (
+        <section className="winner">
+        <div className="text">
+          <h2>
+            {
+              winner === false
+              ? "empate"
+              : "Ganó:"
+            }
+          </h2>
+          <header className="win">
+            {winner && <Square>{winner}</Square>}
+          </header>
+
+          <footer>
+            <button>Empezar de nuevo</button>
+          </footer>
+        </div>
+        </section>
+      )
+     }
+
+
+
      </main>
     )
 }
