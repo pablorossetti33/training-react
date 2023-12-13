@@ -45,72 +45,52 @@ import {saveGameToStorage, resetGameStorage} from "./logic/storage/index"
       //Cambiar el turno
       const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X
       setTurn(newTurn)
-      //Revisar si hay ganador
+      // guardar aqui partida
+      saveGameToStorage({
+        board: newBoard,
+        turn: newTurn
+      })
+      // revisar si hay ganador
       const newWinner = checkWinnerFrom(newBoard)
       if (newWinner) {
         confetti()
         setWinner(newWinner)
       } else if (checkEndGame(newBoard)) {
         setWinner(false) // empate
-     }
-
-
-    }
+      }
+  }
 
     return(
      <main className="board">
      <h1>Tic tac </h1>
+     <button onClick={resetGame}>Reset del Juego</button>
      <section className="game">
       {
-        board.map((_, index) => {
+        board.map((square, index) => {
           return(
             <Square
             key = {index}
             index={index}
             updateBoard={updateBoard}
             >
-              {board[index]}
+              {square}
               </Square>
           )
         })
       }
      </section>
-     <section className="turn">
-       <Square isSelected={turn === TURNS.X}>
-        {TURNS.X}
+     <section className='turn'>
+        <Square isSelected={turn === TURNS.X}>
+          {TURNS.X}
         </Square>
-       <Square isSelected={turn === TURNS.O}>
-        {TURNS.O}
+        <Square isSelected={turn === TURNS.O}>
+          {TURNS.O}
         </Square>
-     </section>
-    
-     {
-      winner ===! null && (
-        <section className="winner">
-        <div className="text">
-          <h2>
-            {
-              winner === false
-              ? "empate"
-              : "Ganó:"
-            }
-          </h2>
-          <header className="win">
-            {winner && <Square>{winner}</Square>}
-          </header>
+      </section>
 
-          <footer>
-            <button>Empezar de nuevo</button>
-          </footer>
-        </div>
-        </section>
-      )
-     }
-
-
-
-     </main>
-    )
+      <WinnerModal resetGame={resetGame} winner={winner} />
+    </main>
+  )
 }
 
 export default App
