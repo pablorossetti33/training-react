@@ -9,27 +9,19 @@ import {saveGameToStorage, resetGameStorage} from "./logic/storage/index"
 
 
    function App() {
-    const [board, setBoard] = useState(Array(9).fill(null))
+    const [board, setBoard] = useState(() => {
+      const boardFromStorage = window.localStorage.getItem('board')
+      if (boardFromStorage) return JSON.parse(boardFromStorage)
+      return Array(9).fill(null)
+    })
+  
+    const [turn, setTurn] = useState(() => {
+      const turnFromStorage = window.localStorage.getItem('turn')
+      return turnFromStorage ?? TURNS.X
+    })
 
-    const [turn,setTurn] = useState(TURNS.X)
-    //null es que no hay ganador, false hay empate.
-    const [winner, setWinner] = useState(null) 
 
-    const checkWinner = (boardToCheck) => {
-      //Revisamos las combinaciones
-      for (const combo of WINNER_COMBOS){
-        const [a, b, c] = combo
-        if (
-          boardToCheck[a] &&
-          boardToCheck[a] === boardToCheck[b] &&
-          boardToCheck[a] === boardToCheck[c]
-        ){
-          return boardToCheck[a]
-        }
-      }
-      //Si no hay ganador:
-      return null
-    }
+    
 
     const updateBoard = (index) =>{
       //No actualizamos esta posición si ya tiene algo.
