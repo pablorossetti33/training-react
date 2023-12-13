@@ -21,6 +21,18 @@ import {saveGameToStorage, resetGameStorage} from "./logic/storage/index"
     })
 
 
+     // null es que no hay ganador, false que hay empate.
+     const [winner, setWinner] = useState(null)
+
+
+     const resetGame = () => {
+      setBoard(Array(9).fill(null))
+      setTurn(TURNS.X)
+      setWinner(null)
+
+      resetGameStorage()
+     }
+
     
 
     const updateBoard = (index) =>{
