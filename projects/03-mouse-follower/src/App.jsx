@@ -2,9 +2,17 @@ import { useEffect, useState } from 'react'
 
 function App () {
   const [enabled, setEnabled] = useState(false)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+
+  // pointer move
   useEffect(() => {
     console.log('efecto', { enabled })
   }, [enabled])
+
+  const handleMove = (event) =>{
+    const { clientX, clientY } = event
+    setPosition({ x: clientX, y: clientY })
+  }
   return (
     <main>
       <div style={{
