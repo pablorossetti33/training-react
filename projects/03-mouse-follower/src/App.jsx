@@ -9,10 +9,14 @@ function App () {
     console.log('efecto', { enabled })
   }, [enabled])
 
-  const handleMove = (event) =>{
+  const handleMove = (event) => {
     const { clientX, clientY } = event
     setPosition({ x: clientX, y: clientY })
   }
+  if (enabled) {
+    window.addEventListener('pointermove', handleMove)
+  }
+
   return (
     <main>
       <div style={{
