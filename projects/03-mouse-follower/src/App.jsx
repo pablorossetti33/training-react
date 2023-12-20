@@ -17,6 +17,16 @@ function App () {
     window.addEventListener('pointermove', handleMove)
   }
 
+  // cleanup:
+  // -> Cuando el componente se monta
+  // -> Cuando cambian las dependencias antes de ejecutar
+  // el efecto de nuevo
+  return () => { // cleanup method
+    console.log('cleanup')
+    window.removeEventListener('pointermove', handleMove)
+  }
+}, [enabled])
+
   return (
     <main>
       <div style={{
