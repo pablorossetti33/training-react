@@ -39,7 +39,7 @@ const FollowMouse = () => {
   }, [enabled])
 
   return (
-    <main>
+    <>
       <div style={{
         position: 'absolute',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -58,7 +58,7 @@ const FollowMouse = () => {
           {enabled ? 'Desactivar' : 'Activar'} seguir puntero
         </button>
       </div>
-    </main>
+    </>
   )
 }
 
