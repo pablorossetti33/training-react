@@ -8,7 +8,12 @@ export function App () {
   useEffect(() => {
     fetch(CAT_ENDPOINT_RANDOM_FACT)
       .then(res => res.json())
-      .then(data => setFact(data.fact))
+      .then(data => {
+        const { fact } = data
+        setFact(data.fact)
+
+        const firstWord = fact.split(' ').slice(0, 3).join(' ')
+      })
   }, [])
   return (
     <main>
