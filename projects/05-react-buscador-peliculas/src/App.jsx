@@ -3,8 +3,11 @@ import './App.css'
 function App () {
   return (
     <div>
-      <form className='form' />
-      <input placeholder='Avengers, Star Wars, The Matrix..' />
+      <header>
+        <form className='form' />
+        <input placeholder='Avengers, Star Wars, The Matrix..' />
+        <button type='submit'>Search</button>
+      </header>
     </div>
   )
 }
