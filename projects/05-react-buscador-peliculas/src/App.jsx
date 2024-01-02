@@ -2,12 +2,17 @@ import './App.css'
 
 function App () {
   return (
-    <div>
+    <div className='page'>
       <header>
-        <form className='form' />
-        <input placeholder='Avengers, Star Wars, The Matrix..' />
-        <button type='submit'>Search</button>
+        <h1>Movie Search.</h1>
+        <form className='form'>
+          <input placeholder='Avengers, Star Wars, The Matrix..' />
+          <button type='submit'>Search</button>
+        </form>
       </header>
+      <main>
+        All of movies
+      </main>
     </div>
   )
 }
