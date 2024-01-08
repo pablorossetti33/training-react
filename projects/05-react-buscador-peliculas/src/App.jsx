@@ -17,9 +17,9 @@ function App () {
       <main>
         {
           hasMovies
-          ? (
-            <ul>
-              {
+            ? (
+              <ul>
+                {
                 movies.map(movie => (
                   <li key={movie.imdbID}>
                     <h3>{movie.Title}</h3>
@@ -29,7 +29,7 @@ function App () {
                 ))
               }
             </ul>
-          ) : (
+              ) : (
             <p>No se encontraron Peliculas</p>
           )
         }
