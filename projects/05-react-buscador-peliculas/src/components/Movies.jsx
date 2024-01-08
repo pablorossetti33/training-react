@@ -1,4 +1,4 @@
-export function ListOfMovies ({ movies }) {
+function ListOfMovies ({ movies }) {
   return (
     <ul>
       {
@@ -11,5 +11,20 @@ export function ListOfMovies ({ movies }) {
         ))
         }
     </ul>
+  )
+}
+
+function NoMoviesResults () {
+  return (
+    <p>No se encontraron peliculas</p>
+  )
+}
+
+export function Movies ({ movies }) {
+  const hasMovies = movies?.length > 0
+  return (
+    hasMovies
+      ? <ListOfMovies movies={movies} />
+      : <NoMoviesResults />
   )
 }
