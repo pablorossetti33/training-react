@@ -1,19 +1,9 @@
 import './App.css'
-import responseMovies from './mocks/with-results.json'
-import withoutResults from './mocks/no-results.json'
 import { Movies } from './components/Movies'
+import { useMovies } from './hooks/useMovies'
 
-export function useMovies () {
-  const movies = responseMovies.Search
-
-  const mappedMovies = movies?.map(movie => ({
-    id: movie.imdbID,
-    title: movie.Title,
-    year: movie.Year,
-    poster: movie.Poster
-  }))
-}
 function App () {
+  const { movies: mappedMovies } = useMovies()
   return (
     <div className='page'>
       <header>
