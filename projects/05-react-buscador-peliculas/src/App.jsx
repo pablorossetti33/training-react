@@ -8,7 +8,8 @@ function App () {
   const inputRef = useRef()
 
   const handleClick = () => {
-    const value = inputRef.current.value
+    const inputEl = inputRef.current
+    const value = inputEl.value
     console.log(value)
   }
   return (
