@@ -7,7 +7,8 @@ function App () {
   const { movies } = useMovies()
   const inputRef = useRef()
 
-  const handleClick = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     const inputEl = inputRef.current
     const value = inputEl.value
     console.log(value)
@@ -16,9 +17,9 @@ function App () {
     <div className='page'>
       <header>
         <h1>Movie Search.</h1>
-        <form className='form'>
+        <form className='form' onSubmit={handleSubmit}>
           <input ref={inputRef} placeholder='Avengers, Star Wars, The Matrix..' />
-          <button onClick={handleClick} type='submit'>Search</button>
+          <button type='submit'>Search</button>
         </form>
       </header>
       <main>
