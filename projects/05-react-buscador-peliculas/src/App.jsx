@@ -2,17 +2,38 @@ import './App.css'
 import { useEffect, useState, useRef, useCallback } from 'react'
 import { Movies } from './components/Movies'
 import { useMovies } from './hooks/useMovies'
+import debounce from 'just-debounce-it'
+
+function useSearch () {
+  const [search, updateSearch] = useState('')
+  const [error, setError] = useState(null)
+  const isFirstInput = useRef(true)
+
+  useEffect(() => {
+    if (isFirstInput.current) {
+      isFirstInput.current = search === ''
+      return
+    }
+
+    if (search === '') {
+      setError('No se puede buscar una pelicula con un número')
+      return
+    }
+
+    if (search.match(/^\d+$/)) {
+      setError('No se puede buscar una película con un número')
+      return
+    }
+
+    if (search.length < 3) {
+      setError('La búsqueda debe tener al menos 3 caracteres')
+      return
+    } setError(null)
+  }, [search])
+}
 
 function App () {
-  const { movies } = useMovies()
-  const inputRef = useRef()
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const inputEl = inputRef.current
-    const value = inputEl.value
-    console.log(value)
-  }
+  
   return (
     <div className='page'>
       <header>
