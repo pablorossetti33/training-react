@@ -30,6 +30,8 @@ function useSearch () {
       return
     } setError(null)
   }, [search])
+
+  return { search, updateSearch, error }
 }
 
 function App () {
