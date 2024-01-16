@@ -35,7 +35,18 @@ function useSearch () {
 }
 
 function App () {
-  
+  const [sort, setSort] = useState(false)
+
+  const { search, updateSearch, error } = useSearch()
+  const { movies, loading, getMovies } = useMovies({ search, sort })
+
+  const debouncedGetMovies = useCallback(
+    debounce(search => {
+      console.log('search', search)
+      getMovies({ search })
+    }, 300)
+    , [getMovies]
+  )
   return (
     <div className='page'>
       <header>
