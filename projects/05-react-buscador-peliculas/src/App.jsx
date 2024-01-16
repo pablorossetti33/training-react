@@ -47,17 +47,44 @@ function App () {
     }, 300)
     , [getMovies]
   )
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    getMovies({ search })
+  }
+
+  const handleSort = () => {
+    setSort(!sort)
+  }
+
+  const handleChange = (event) => {
+    const newSearch = event.target.value
+    updateSearch(newSearch)
+    debouncedGetMovies(newSearch)
+  }
+
   return (
     <div className='page'>
+
       <header>
         <h1>Movie Search.</h1>
         <form className='form' onSubmit={handleSubmit}>
-          <input ref={inputRef} placeholder='Avengers, Star Wars, The Matrix..' />
-          <button type='submit'>Search</button>
+          <input
+            style={{
+              border: '1px solid transparent',
+              borderColor: error ? 'red' : 'transparent'
+            }} onChange={handleChange} value={search} name='query' placeholder='Avengers, Star Wars, The Matrix...'
+          />
+          <input type='checkbox' onChange={handleSort} checked={sort} />
+          <button type='submit'>Buscar</button>
         </form>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
       </header>
+
       <main>
-        <Movies movies={movies} />
+        {
+          loading ? <p>Cargando...</p> : <Movies movies={movies} />
+        }
       </main>
     </div>
   )
