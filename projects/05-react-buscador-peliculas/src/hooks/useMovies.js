@@ -1,4 +1,4 @@
-import { useRef, useState, useMemo, useCallBack } from 'react'
+import { useRef, useState, useMemo, useCallback } from 'react'
 import { searchMovies } from '../services/movies'
 
 export function useMovies ({ search, sort }) {
@@ -8,7 +8,7 @@ export function useMovies ({ search, sort }) {
   const [, setError] = useState(null)
   const previousSearch = useRef(search)
 
-  const getMovies = useCallBack(async ({ search }) => {
+  const getMovies = useCallback(async ({ search }) => {
     if (search === previousSearch.current) return
     // search es ''
 
