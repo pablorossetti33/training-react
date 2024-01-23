@@ -11,6 +11,14 @@ export function Products ({ products }) {
               src={product.thumbnail}
               alt={product.title}
             />
+            <div>
+              <strong>{product.title}</strong>
+            </div>
+            <div>
+              <button>
+                <AddToCartIcon />
+              </button>
+            </div>
           </li>
         ))}
       </ul>
