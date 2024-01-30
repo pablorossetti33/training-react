@@ -10,6 +10,15 @@ export function Filters () {
           max='1000'
         />
       </div>
+      <div>
+        <label htmlFor='category'>Category</label>
+        <select id='category'>
+          <option value='all'>All</option>
+          <option value='laptops'>Laptops</option>
+          <option value='smartphones'>SmartPhones</option>
+
+        </select>
+      </div>
     </section>
   )
 }
