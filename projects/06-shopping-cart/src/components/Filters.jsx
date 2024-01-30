@@ -2,7 +2,7 @@ export function Filters () {
   return (
     <section className="filters">
       <div>
-        <label>Category</label>
+        <label htmlFor="price">Price</label>
       </div>
     </section>
   )
