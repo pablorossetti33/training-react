@@ -4,6 +4,10 @@ export function Filters ({ onChange }) {
   const [minPrice, setMinPrice] = useState(0)
   const handleChangeMinPrice = (event) => {
     setMinPrice(event.target.value)
+    onChange(prevState => ({
+      ...prevState,
+      minPrice: event.target.value
+    }))
   }
   return (
     <section className='filters'>
