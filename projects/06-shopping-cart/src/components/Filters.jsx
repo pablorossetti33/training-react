@@ -21,10 +21,10 @@ export function Filters ({ onChange }) {
   return (
     <section className='filters'>
       <div>
-        <label htmlFor='price'>Price starting at</label>
+        <label htmlFor={minPriceFilterId}>Price starting at</label>
         <input
           type='range'
-          id='price'
+          id={minPriceFilterId}
           min='0'
           max='1000'
           onChange={handleChangeMinPrice}
@@ -32,8 +32,8 @@ export function Filters ({ onChange }) {
         <span>${minPrice}</span>
       </div>
       <div>
-        <label htmlFor='category'>Category</label>
-        <select id='category' onChange={handleChangeCategory}>
+        <label htmlFor={categoryFilterId}>Category</label>
+        <select id={categoryFilterId} onChange={handleChangeCategory}>
           <option value='all'>All</option>
           <option value='laptops'>Laptops</option>
           <option value='smartphones'>SmartPhones</option>
