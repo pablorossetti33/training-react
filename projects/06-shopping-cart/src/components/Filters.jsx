@@ -37,7 +37,6 @@ export function Filters ({ onChange }) {
           <option value='all'>All</option>
           <option value='laptops'>Laptops</option>
           <option value='smartphones'>SmartPhones</option>
-
         </select>
       </div>
     </section>
