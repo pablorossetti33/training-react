@@ -3,6 +3,7 @@ import { Products } from './components/Products'
 import { useState } from 'react'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
+
 function useFilters () {
   const [filters, setFilters] = useState({
     category: 'all',
