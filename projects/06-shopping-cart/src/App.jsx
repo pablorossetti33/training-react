@@ -12,6 +12,8 @@ function useFilters () {
   //   minPrice: 0
   // })
   const filters = useContext(FiltersContext)
+  console.log(filters)
+  const setFilters = () => {}
 
   const filterProducts = (products) => {
     return products.filter(product => {
