@@ -1,9 +1,9 @@
 import { createContext } from 'react'
 
-// Crear el context
+// Este es el que tenemos que consumir
 export const FiltersContext = createContext()
 
-// Crear el provider, para proveer el contexto.
+// Este es el que nos provee de acceso al contexto.
 export function FilterProvider ({ children }) {
   return (
     <FiltersContext.Provider value={{
