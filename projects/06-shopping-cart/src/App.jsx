@@ -13,6 +13,7 @@ function useFilters () {
   // })
   const filters = useContext(FiltersContext)
   console.log(filters)
+  // Funcion para que no de error
   const setFilters = () => {}
 
   const filterProducts = (products) => {
