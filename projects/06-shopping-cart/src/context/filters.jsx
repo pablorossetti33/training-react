@@ -7,7 +7,7 @@ export const FiltersContext = createContext()
 export function FilterProvider ({ children }) {
   return (
     <FiltersContext.Provider value={{
-      category: 'all',
+      category: 'laptops',
       minPrice: 0
     }}
     >
